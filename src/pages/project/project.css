@@ -1,0 +1,25 @@
+.project-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.project{
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7vw;
+    row-gap: 5vh;
+}
+
+@media only screen and (max-width: 1300px) {
+    .project-container{
+        height: fit-content;
+    }
+    .project {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        align-items: center;
+    }
+  }

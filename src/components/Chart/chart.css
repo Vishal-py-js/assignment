@@ -1,0 +1,7 @@
+.chart{
+    padding: 5vh 5vw 0 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

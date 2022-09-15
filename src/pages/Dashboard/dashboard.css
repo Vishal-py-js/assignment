@@ -1,0 +1,28 @@
+.cont{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0px;
+}
+
+
+.dashboard{
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7vw;
+    row-gap: 5vh;
+}
+
+@media only screen and (max-width: 1300px) {
+    .cont{
+        height: fit-content;
+    }
+    .dashboard {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 10vh;
+        align-items: center;
+    }
+  }
