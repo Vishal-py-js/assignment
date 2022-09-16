@@ -3,6 +3,7 @@ import Card from '../../components/dashboard-project'
 import "./dashboard.css"
 import { useSelector } from 'react-redux';
 import Button from '../../components/Button';
+import CreateProject from '../../components/projectCreationForm';
 
 function Dashboard() {
 
@@ -10,13 +11,19 @@ function Dashboard() {
 
     const projects = useSelector(state => state.projects.projects)
 
+    
+
     const handleForm = () => {
         setCreateForm(true)
+        console.log(createForm);
     }
 
     return (
         <div className='cont'>
-            <Button className="button" text="Create New Project"/>
+            {
+                createForm?<CreateProject setCreateForm={setCreateForm}/>:""
+            }
+            <Button handleClick={handleForm} className="button" text="Create New Project"/>
             <div className='dashboard'>
                 {
                     projects.map(project => (

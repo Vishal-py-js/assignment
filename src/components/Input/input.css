@@ -1,0 +1,27 @@
+.input-cont{
+    display: flex;
+    /* flex-direction: column; */
+    width: 100%;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-cont > label{
+    color: rgba(79,89,110,255);
+    color: black;
+    font-size: 22px;
+}
+
+.input-cont > input{
+    width: 300px;
+    padding: 12px 15px;
+    border: 0.2px solid #e9ecf4;
+    border-radius: 5px;
+    font-size: 20px;
+        
+}
+
+.input-cont > input :focus{
+    outline: 1px solid rgba(101,77,227,255);
+}

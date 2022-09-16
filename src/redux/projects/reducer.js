@@ -1,4 +1,4 @@
-import { get_data, get_project_details } from "./constants"
+import { get_data, get_project_details, create_project } from "./constants"
 import { data } from "./data"
 
 
@@ -13,7 +13,11 @@ export const projectReducer = (state=initialState, action) => {
         case get_data:
             return state
         
+        case create_project:
+            state.projects.push(action.payload)
+            return state
         default:
             return state
     }
 }
+
