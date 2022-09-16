@@ -8,6 +8,7 @@ import Project from './pages/project';
 import ChartPage from './pages/ChartData';
 import PdfReport from './pages/PdfReport';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import Button from './components/Button';
 
 
 function App() {
@@ -25,9 +26,9 @@ function App() {
             <Switch>
               <Route exact path='/'>
                 <div className='links'>
-                  <Link to="/dashboard"><button className='button'>Dashboard</button></Link>
-                  <Link to="/report/allprojectbudgetplot"><button className='button'>Budget Plot</button></Link>
-                  <Link to="/report/pdfreport"><button className='button'>PDF Report</button></Link>
+                  <Link to="/dashboard"><Button className="button" text="Dashboard"/></Link>
+                  <Link to="/report/allprojectbudgetplot"><Button className="button" text="Budget Plot"/> </Link>
+                  <Link to="/report/pdfreport"><Button className="button" text="PDF Report"/></Link>
                 </div>
               </Route>
               <Route exact path="/dashboard" component={Dashboard} />

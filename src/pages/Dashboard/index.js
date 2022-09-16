@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '../../components/dashboard-project'
 import "./dashboard.css"
 import { useSelector } from 'react-redux';
+import Button from '../../components/Button';
 
 function Dashboard() {
 
+    const[createForm, setCreateForm] = useState(false)
+
     const projects = useSelector(state => state.projects.projects)
+
+    const handleForm = () => {
+        setCreateForm(true)
+    }
 
     return (
         <div className='cont'>
+            <Button className="button" text="Create New Project"/>
             <div className='dashboard'>
                 {
                     projects.map(project => (

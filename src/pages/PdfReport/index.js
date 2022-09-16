@@ -3,8 +3,10 @@ import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import Button from '../../components/Button'
 
 import "./pdfReport.css"
+import generatePDF from './reportGenerator'
 
 function PdfReport() {
     // const[file, setFile] = useState()
@@ -17,15 +19,11 @@ function PdfReport() {
         pdfData.push({
             projectId: project.projectId,
             projectName: project.projectName,
-            budget: project.budget
+            budget: project.budget,
+            siteAddress: project.siteAddress,
+            projectStatus: project.projectStatus
         })
     })
-
-
-    // const saveFile = (e) => {
-    //     setFile(e.target.files[0]);
-    //     setFileName(e.target.files[0].name);
-    //   };
 
     const savePdf = async() => {
         const element = document.getElementById("pdf")
@@ -33,16 +31,11 @@ function PdfReport() {
         const pdf = new jsPDF()
         const ele = await html2canvas(element)
         console.log(ele);
-        html2canvas(element)
-        .then(async(canvas) => {
-            pdf.addImage(canvas, 'JPEG', 10, 0, 200, 200)
-            pdf.save("projects.pdf")
-            
-        
-            axios.post("http://localhost:8000/upload", JSON.stringify(pdfData))
-            .then(res=>{
-                console.log(res.data);
-            })
+
+        generatePDF(pdfData)
+        axios.post("http://localhost:8000/upload", JSON.stringify(pdfData))
+        .then(res=>{
+            console.log(res.data);
         })
         
     }
@@ -71,8 +64,8 @@ function PdfReport() {
                     </tbody>
                 </table>
                 <div className='buttons'>
-                    <button >Sign</button>
-                    <button onClick={savePdf}>Generate PDF</button>
+                    <Button text="Sign" />
+                    <Button handleClick={savePdf} text="Generate PDF" />
                 </div>
             </div>
         </div>
